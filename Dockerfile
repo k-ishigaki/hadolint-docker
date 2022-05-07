@@ -7,7 +7,7 @@ RUN echo 'developer ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers.d/developer && \
     { \
     echo "#!/bin/sh -e"; \
     echo "user_id=\$(id -u)"; \
-    echo "group_id=\$(id - g)"; \
+    echo "group_id=\$(id -g)"; \
     echo "getent group \$group_id || groupadd --gid \$group_id developer"; \
     echo "getent passwd \$user_id || useradd --uid \$user_id --gid \$group_id --home-dir /root developer"; \
     echo "sudo find /root -maxdepth 1 | xargs sudo chown \$user_id:\$group_id"; \
